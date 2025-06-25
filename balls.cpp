@@ -19,7 +19,7 @@ private:
 public:
     LinkedList() : _head(nullptr), _tail(nullptr), _size(0) {}
 
-    void push_back(int val) {
+    void PushBack(int val) {
         Node* newNode = new Node(val);
         if (!_head) {
             _head = _tail = newNode;
@@ -63,7 +63,7 @@ public:
         _size -= count;
     }
 
-    int DestroyThree() {
+    int DestroySeq() {
         if (!_head) return 0;
 
         int destroyed = 0;
@@ -97,13 +97,13 @@ public:
     return destroyed;
 }
 
-    void print() {
+    void Print() {
         Node* current = _head;
         while (current) {
-            cout << current->value << " ";
-            current = current->next;
+        cout << current->value << " ";
+        current = current->next;
         }
-        cout << endl;
+       cout << endl;
     }
 
     ~LinkedList() {
@@ -155,11 +155,12 @@ int main() {
                 break;
             }
         }
-        list.push_back(num);
+        list.PushBack(num);
     }
 
-    int totalDestroyed = list.DestroyThree();
+    int totalDestroyed = list.DestroySeq();
     cout << "Уничтожено шариков: " << totalDestroyed << endl;
-
+    cout << "Оставшиеся шарики: ";
+    list.Print();
     return 0;
 }
